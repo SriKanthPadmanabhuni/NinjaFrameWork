@@ -1,0 +1,185 @@
+
+<html lang="en">
+
+<head>
+  
+<title>MiniProject|Profile Page</title>
+  
+<meta charset="utf-8">
+  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <style>
+           
+.modal-header, h4, .close 
+      
+{
+        background-color: #5cb85c;
+        
+         color:white !important;
+        
+         text-align: center;
+        
+         font-size: 30px;
+      
+}
+      
+.modal-footer 
+      
+{
+        
+       background-color: #f9f9f9;
+      
+}
+  
+.gi-5x{
+font-size: 18em; 
+position: relative;
+  /* Adjust these values accordingly */
+  left: 5px;
+}
+</style>
+
+</head>
+
+<body style="background-color:steel">
+            
+<nav class="navbar navbar-inverse navbar-fixed-top">
+                
+<div class="container-fluid">
+                     
+<div class="navbar-header">
+                        
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            
+<span class="icon-bar"></span>
+                            
+<span class="icon-bar"></span>                        
+                        
+</button>
+                        
+<a class="navbar-brand" href="index.html" target="_blank">Medical Store</a>
+                    
+</div>
+                    
+<div class="collapse navbar-collapse" id="myNavbar">
+                        
+<ul class="nav navbar-nav navbar-right">
+<li><a href="/">
+<span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+  
+</ul>
+                    
+</div>
+                
+</div>
+<div class="row">
+        
+<div class="container-fluid">
+            
+<div class="col-xs-3"><br>
+                
+<div class="panel panel-primary" style=" background-color:#fff; ">
+                    
+<div class="panel-heading"><span class="glyphicon glyphicon-user gi-5x align-middle">
+</span> </div> 
+                    
+<div class="panel-body">
+	<#list registration as m1>
+       <h3><b>Contact as Id:</b></h3><p>${(m1.id)!"Null Id"}</p>
+       <h3><b>Name:</b></h3><p>${(m1.name)!" Null Name"}</p>
+       <h3><b>Email:</b></h3><p>${(m1.email)!" Null Email"}</p>               
+	</#list>
+<!-- Button -->
+</div>
+             
+</div>
+            
+</div>
+            
+<div class="col-xs-9"><br>
+                
+<div class="panel panel-primary" style=" background-color:#fff; ">
+                    
+<div class="panel-heading"><span class="glyphicon glyphicon-dashboard">
+</span>Dash Board</div>
+                    
+<div class="panel-body">
+                        
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#S_ID</th>
+      <th scope="col">#Id</th>
+      <th scope="col">Medicine Name</th>
+      <th scope="col">Counts</th>
+      <th scope="col">Add Medicine</th>
+      <th scope="col">Reduce Medicine</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+	   <#list med as m>
+	    	<tr>
+	    		<td>${m.id}</td>
+	    		<td>${m.mid}</td>
+	    		<td>${m.mname}</td>
+	    		<td>${m.counts}</td>
+	    		<td>
+	    			<button class="btn btn-warning" onclick="window.location='/adds'" name="${m.mid}">
+	    				<span class="glyphicon glyphicon-plus"></span>
+	    			</button>
+	    		</td>
+        		<td>
+        			<#if m.counts!=0>
+        				<button type="submit" class="btn btn-warning" onclick="window.location='/reduces'" name="${m.mid}">
+        					<span class="glyphicon glyphicon-minus"></span>
+        				</button>
+        			<#else>
+        				<p> Not Avilable </p>
+        			</#if>
+        				
+        		</td>
+	  		</tr>
+	  </#list>
+  </tbody>
+  </form>
+</table>
+<form action="/addMed">
+<b>Add New Medicine</b>
+  <button type="submit" class="btn btn-warning" value="Add New Medicines">
+  <span class="fa fa-plus-square"></span>
+ </button>
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>             
+</div>
+                
+</div>
+            
+</div>
+        
+</div>
+    
+</div>
+    
+</footer>
+    
+</div>
+
+</body>
